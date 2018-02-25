@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>select panel</title>
+  <link rel="stylesheet" href="lib/bootstrap-3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/select_pannel.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-size: 12px;
+    }
+    .container {
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- 筛选条件 begin -->
+        <div class="form-group">
+            <label id="search_label">筛选条件：</label>
+            <div class="search-wrap" id="search">
+                <div class="item red">
+                    
+                </div>
+                <div class="item blue">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- 筛选条件 end -->
+        <div class="btn">
+          <button type="button" class="btn btn-primary" id="query">查询</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 筛选条件按钮模板 -->
+  <script type="text/jsrender" id="tp_search_btn">
+      {{for data ~color=color}}
+          <div class="btn-group" key="{{:key}}" parent="{{:parent}}" children="{{:children}}">
+              <button type="button" class="btn btn-reset btn-{{:~color}} dropdown-toggle btn-click" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  选择{{:title}}<span class="btn-selected-num non">(0)</span><span class="caret"></span>
+              </button>
+              <div class="dropdown-menu">
+                  <ul class="nav nav-tabs">
+                      <li class="active" tab="all"><a href="javascript:void(null);">全部</a></li>
+                      <li tab="selected"><a href="javascript:void(null);">已选择 <span class="text-info selected-num">0</span> 项</a></li>
+                  </ul>
+                  <div class="tab-content">
+                      <div class="input-wrap input-group">
+                          <input type="text" class="form-control search-input" value="" placeholder="请输入名称">
+                          <span class="input-group-btn">
+                              <button type="button" class="btn btn-primary search-btn">
+                                  查询
+                              </button>
+                          </span>
+                      </div>
+                      <div class="pannel pannel-default">
+                          <div class="pannel-head all">
+                              <label class="{{if tab=='selected'}}non{{/if}}">
+                                  <input type="checkbox" class="check-all">全选/取消(<span class="text-info total">0</span>项)
+                              </label>
+                              <button class="btn btn-default clear non">清空已选择项</button>
+                          </div>
+                          <div class="pannel-body">
+                              <div id="loading" class="loading">
+                                  <img src="img/loading.gif">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="btn-wrap">
+                      <button class="btn btn-primary confirm">确定</button>
+                      <button class="btn btn-default cancel">取消</button>
+                  </div>
+              </div>
+          </div>
+      {{/for}}
+  </script>
+
+  <!-- 筛选条件按钮点击浮层主要内容模板 -->
+  <script type="text/jsrender" id="tp_tab_content">
+      <ul>
+          {{for data}}
+              <li>
+                  <label>
+                      <input type="checkbox" class="check-item" value="{{:id}}" parent="{{:parent_id}}"><span class="ell" title="{{:name}}">{{:name}}</span>
+                  </label>
+              </li>
+          {{/for}}
+      </ul>
+  </script>
+
+  <script src="lib/jquery-2.1.4/jquery.min.js"></script>
+  <script src="lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+  <script src="lib/jsrender.js"></script>
+  <script src="api/data.js"></script>
+  <script src="js/select_panel.js"></script>
+  <script>
+    $('#query').click(function () {
+      console.log('data', searchMod.searchData);
+    })
+  </script>
+</body>
+</html>

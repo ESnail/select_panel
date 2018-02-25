@@ -1,0 +1,149 @@
+/* 筛选条件 begin */
+.search-wrap {
+    display: inline-block;
+    width: initial;
+    vertical-align: top;
+}
+.search-wrap .non {
+    display: none;
+}
+.search-wrap .item .btn-group {
+    margin-bottom: 10px;
+}
+.search-wrap .btn-reset {
+    position: relative;
+    width: 155px;
+    text-align: left;
+}
+.search-wrap .item.red .btn-reset {
+    background-color: #ef4136;
+    border-color: #ef4136
+}
+.search-wrap .item.red .btn-reset:focus,
+.search-wrap .item.red .btn-reset:hover {
+    background-color: #ec6d65;
+    border-color: #ec6d65;
+}
+.search-wrap .item.blue .btn-reset:focus,
+.search-wrap .item.blue .btn-reset:hover {
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+.search-wrap .btn-reset .caret {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    color: #fff;
+}
+.search-wrap .dropdown-menu {
+    border-radius: 6px;
+    padding: 10px 0;
+    margin-top: -1px;
+    border: none;
+    display: none;
+    font-size: 12px;
+    left: 0;
+    position: absolute;
+    padding: 8px;
+    z-index: 2000;
+    border: 1px solid #ececec;
+    background: #fff;
+}
+.search-wrap .open > .dropdown-menu {
+    display: block;
+    width: 400px;
+    border-radius: 0;
+}
+.search-wrap .nav-tabs > li > a {
+    padding: 5px 15px;
+}
+.search-wrap .input-wrap {
+    margin: 10px auto;
+}
+.search-wrap .input-wrap input {
+    height: 31px;
+}
+.search-wrap .input-group-btn .ibox-search .input-group>span>button {
+    height: 32px;
+}
+.search-wrap .input-group .btn {
+    border-radius: 3px;
+    padding: 6px 10px;
+    font-size: 12px;
+}
+.search-wrap .btn-primary {
+    background-color: #ef4136;
+    border-color: #ef4136;
+    color: #FFFFFF;
+}
+.search-wrap .btn-primary:hover,
+.search-wrap .btn-primary:focus {
+    background-color: #ef4136;
+    border-color: #ef4136;
+    color: #FFFFFF;
+}
+.search-wrap .pannel .pannel-head {
+    padding: 6px 10px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+}
+.search-wrap .pannel label {
+    font-weight: normal;
+}
+.search-wrap .pannel label input {
+    margin-right: 3px;
+}
+.search-wrap .pannel .pannel-head > label {
+    margin-bottom: 0;
+}
+.search-wrap .pannel .pannel-head > label > input {
+    margin-top: 0;
+    vertical-align: middle;
+}
+.search-wrap .pannel .pannel-body {
+    padding-left: 8px;
+}
+.search-wrap .pannel .pannel-body .loading {
+    margin-right: 8px;
+    height: 220px;
+    text-align: center;
+    line-height: 200px;
+}
+.search-wrap .pannel .pannel-body > ul {
+    padding: 10px 0 0;
+    min-height: 100px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+.search-wrap .pannel .pannel-body > ul > li {
+    display: inline-block;
+    width: 49%;
+}
+.search-wrap .pannel .pannel-body > ul > li:nth-child(2n) {
+    margin-right: 0;
+}
+.search-wrap .pannel .pannel-body > ul > li > label {
+    width: 100%;
+}
+.search-wrap .pannel .pannel-body > ul > li span.ell {
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    width: calc(100% - 16px);
+    word-wrap: break-word;
+    white-space: nowrap;
+    vertical-align: top;
+}
+.search-wrap .pannel .pannel-head.selected {
+    padding-left: 0;
+    background: none;
+    border: 0;
+}
+.search-wrap .pannel .pannel-head.selected .clear {
+    padding: 4px 10px;
+    background-color: #fafafa;
+}
+.search-wrap .pannel .pannel-head.selected .clear:hover {
+    background-color: #eee;
+}
+/* 筛选条件 end */
