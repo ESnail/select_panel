@@ -150,21 +150,14 @@ var searchMod = (function () {
                 },
                 $pannelBody = $curBtn.find('.pannel-body'),
                 pannelLiLen = $pannelBody.find('li').length;
-            // 若没有父级且已有数据，就不再请求接口
-            if (!parent && pannelLiLen) {
+            // sessionStorage记录上一次的请求参数，若相同就不再请求，较少请求
+            var oldQuery = sessionStorage.getItem(key),
+                newQuery = JSON.stringify(params);
+            if (oldQuery == newQuery && pannelLiLen) {
                 searchMod.initCheckedData($curBtn, key, parent, pannelLiLen);
                 return ;
             }
-            // sessionStorage记录上一次的请求参数，若相同就不再请求，较少请求
-            if (parent) {
-                var oldQuery = sessionStorage.getItem('rq'),
-                    newQuery = JSON.stringify(params);
-                if (oldQuery == newQuery && pannelLiLen) {
-                    searchMod.initCheckedData($curBtn, key, parent, pannelLiLen);
-                    return ;
-                }
-                sessionStorage.setItem('rq', newQuery);
-            }
+            sessionStorage.setItem(key, newQuery);
             
             // 模拟处理
             $pannelBody.html(' <div id="loading" class="loading"><img src="img/loading.gif"></div>');
